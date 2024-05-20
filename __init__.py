@@ -22,7 +22,7 @@ class HiveMindFallbackSkill(FallbackSkill):
         # values are taken from the NodeIdentity file
         # set via 'hivemind-client set-identity'
         hm_bus = HiveMessageBusClient(
-            share_bus=self.settings.get("slave_mode", False),
+            share_bus=self.slave_mode,
             useragent=f"HiveMindFallbackSkill:{self.ai_name}",
             self_signed=self.settings.get("allow_selfsigned", False),
             internal_bus=self.bus if self.settings.get("slave_mode") else None
@@ -30,6 +30,10 @@ class HiveMindFallbackSkill(FallbackSkill):
         hm_bus.run_in_thread()
         self.hm.bind(hm_bus)
         self.register_fallback(self.ask_hivemind, 85)
+
+    @property
+    def slave_mode(self):
+        return self.settings.get("slave_mode", False)
 
     @property
     def ai_name(self):
@@ -41,15 +45,22 @@ class HiveMindFallbackSkill(FallbackSkill):
 
     @property
     def ask_async(self):
-        return self.settings.get("async", True)
+        # if in slave mode
+        # response messages will be
+        # injected directly into the bus
+        return (self.slave_mode or
+                self.settings.get("async", True))
 
     def _hivemind_response(self, message):
         utterance = message.data["utterance"]
-        self.chat.qa_pairs = self.build_msg_history(message)
         answered = False
         try:
             utt = self.hm.spoken_answer(utterance)
-            if utt:
+            if self.slave_mode:
+                # speak messages will be
+                # injected directly into the bus
+                return True
+            elif utt:
                 answered = True
                 self.speak(utt)
         except Exception as err:  # speak error on any network issue etc
