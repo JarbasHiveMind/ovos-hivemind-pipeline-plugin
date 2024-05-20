@@ -17,12 +17,12 @@ Under skill settings (`.config/mycroft/skills/skill-ovos-fallback-hivemind.openv
 }
 ```
 
-| Option             | Value      | Description                                                                    |
-|--------------------|------------|--------------------------------------------------------------------------------|
-| `name`             | `HiveMind` | Name to give to the HiveMind AI assistant                                      |
-| `confirmation`     | `true`     | Spoken confirmation will be triggered when a request is sent HiveMind          |
-| `allow_selfsigned` | `false`    | Allow self signed SSL certificates ofr HiveMind connection                     |
-| `slave_mode`       | `false`    | In slave mode HiveMind master receives all bus messages for passive monitoring |
+| Option             | Value      | Description                                                                                                                                    |
+|--------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`             | `HiveMind` | Name to give to the HiveMind AI assistant                                                                                                      |
+| `confirmation`     | `true`     | Spoken confirmation will be triggered when a request is sent HiveMind                                                                          |
+| `allow_selfsigned` | `false`    | Allow self signed SSL certificates ofr HiveMind connection                                                                                     |
+| `slave_mode`       | `false`    | In slave mode HiveMind master receives all bus messages for passive monitoring and will be able to inject arbitrary messages into the OVOS bus |
 
 
 ## HiveMind Setup
