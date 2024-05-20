@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.0a3](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a3) (2024-05-20)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/V0.0.0a2...V0.0.0a3)
+
 ## [V0.0.0a2](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a2) (2024-05-20)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/4c51c47f86c205891ee7f953e6b4792ce121506b...V0.0.0a2)
