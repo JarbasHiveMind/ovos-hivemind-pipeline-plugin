@@ -2,6 +2,7 @@ from ovos_hivemind_solver import HiveMindSolver
 from ovos_utils import classproperty
 from ovos_utils.process_utils import RuntimeRequirements
 from ovos_workshop.skills.fallback import FallbackSkill
+from hivemind_bus_client import HiveMessageBusClient, HiveMessage, HiveMessageType
 
 
 class HiveMindFallbackSkill(FallbackSkill):
@@ -16,7 +17,18 @@ class HiveMindFallbackSkill(FallbackSkill):
         )
 
     def initialize(self):
-        self.hm = HiveMindSolver(config={"hivemind": self.settings})  # will connect to HM here
+        self.hm = HiveMindSolver()
+        # if missing from self.settings,
+        # values are taken from the NodeIdentity file
+        # set via 'hivemind-client set-identity'
+        hm_bus = HiveMessageBusClient(
+            share_bus=self.settings.get("slave_mode", False),
+            useragent=f"HiveMindFallbackSkill:{self.ai_name}",
+            self_signed=self.settings.get("allow_selfsigned", False),
+            internal_bus=self.bus
+        )
+        hm_bus.run_in_thread()
+        self.hm.bind(hm_bus)
         self.register_fallback(self.ask_hivemind, 85)
 
     @property
