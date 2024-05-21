@@ -1,6 +1,6 @@
 # HiveMind Fallback Skill
 
-When in doubt, ask a smarter OVOS install, powered by [HiveMind Solver](https://github.com/JarbasHiveMind/ovos-solver-hivemind-plugin).
+When in doubt, ask a smarter OVOS install
 
 > NOTE: this repository eventually will be converted from a FallbackSkill into a pipeline plugin
 
@@ -19,7 +19,7 @@ Under skill settings (`~/.config/mycroft/skills/skill-ovos-fallback-hivemind.ope
 
 | Option             | Value      | Description                                                                                                                                    |
 |--------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`             | `HiveMind` | Name to give to the HiveMind AI assistant                                                                                                      |
+| `name`             | `HiveMind` | Name to give to the HiveMind AI assistant in the confirmation dialog                                                                           |
 | `confirmation`     | `true`     | Spoken confirmation will be triggered when a request is sent HiveMind                                                                          |
 | `allow_selfsigned` | `false`    | Allow self signed SSL certificates ofr HiveMind connection                                                                                     |
 | `slave_mode`       | `false`    | In slave mode HiveMind master receives all bus messages for passive monitoring and will be able to inject arbitrary messages into the OVOS bus |
