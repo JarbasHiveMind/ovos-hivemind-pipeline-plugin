@@ -25,7 +25,7 @@ class HiveMindFallbackSkill(FallbackSkill):
             share_bus=self.slave_mode,
             useragent=f"HiveMindFallbackSkill:{self.ai_name}",
             self_signed=self.settings.get("allow_selfsigned", False),
-            internal_bus=self.bus if self.settings.get("slave_mode") else None
+            internal_bus=self.bus if self.slave_mode else None
         )
         hm_bus.run_in_thread()
         self.hm.bind(hm_bus)
