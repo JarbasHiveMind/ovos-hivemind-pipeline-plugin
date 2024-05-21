@@ -70,12 +70,6 @@ class HiveMindFallbackSkill(FallbackSkill):
         return answered
 
     def ask_hivemind(self, message):
-        if "key" not in self.settings:
-            self.log.error(
-                "HiveMind not configured yet, please set your API key in %s",
-                self.settings.path,
-            )
-            return False  # HiveMind not configured yet
         if self.confirmation:
             self.speak_dialog("asking", data={"name": self.ai_name})
         if self.ask_async:
