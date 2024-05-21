@@ -6,7 +6,7 @@ When in doubt, ask a smarter OVOS install, powered by [HiveMind Solver](https://
 
 ## Configuration
 
-Under skill settings (`.config/mycroft/skills/skill-ovos-fallback-hivemind.openvoiceos/settings.json`) you can tweak some parameters for HiveMind Skill.
+Under skill settings (`~/.config/mycroft/skills/skill-ovos-fallback-hivemind.openvoiceos/settings.json`) you can tweak some parameters for HiveMind Skill.
 
 ```json
 {
@@ -69,3 +69,17 @@ $ hivemind-client test-identity
 
 If this step fails, your skill will also fail to connect to HiveMind
 
+
+## Slave Mode
+
+If running in **slave** mode skills can emit serialized [HiveMessages](https://github.com/JarbasHiveMind/hivemind-websocket-client/blob/dev/hivemind_bus_client/message.py) via the regular bus
+
+This can be used to inject bus messages from one device messagebus to the other
+
+from **slave** -> **master**: (might be rejected by `hivemind-core`)
+- emit `"hive.send.upstream"` with message.data, `{"msg_type": "bus", "payload": message.serialize()}`
+
+from **master** -> **slave**:
+- emit `"hive.send.downstream"` with message.data, `{"msg_type": "bus", "payload": message.serialize()}`
+
+see the [hivemind protocol]([https://jarbashivemind.github.io/HiveMind-community-docs/12_hive/](https://jarbashivemind.github.io/HiveMind-community-docs/04_protocol/)) for more details on valid payloads
