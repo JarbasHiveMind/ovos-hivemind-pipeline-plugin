@@ -23,7 +23,7 @@ class HiveMindFallbackSkill(FallbackSkill):
         # set via 'hivemind-client set-identity'
         hm_bus = HiveMessageBusClient(
             share_bus=self.slave_mode,
-            useragent=f"HiveMindFallbackSkill:{self.ai_name}",
+            useragent=f"HiveMindFallbackSkill",
             self_signed=self.settings.get("allow_selfsigned", False),
             internal_bus=self.bus if self.slave_mode else None
         )
