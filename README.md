@@ -82,4 +82,6 @@ from **slave** -> **master**: (might be rejected by `hivemind-core`)
 from **master** -> **slave**:
 - emit `"hive.send.downstream"` with message.data, `{"msg_type": "bus", "payload": message.serialize()}`
 
-see the [hivemind protocol]([https://jarbashivemind.github.io/HiveMind-community-docs/12_hive/](https://jarbashivemind.github.io/HiveMind-community-docs/04_protocol/)) for more details on valid payloads
+see the [hivemind protocol](https://jarbashivemind.github.io/HiveMind-community-docs/04_protocol) for more details on valid payloads
+
+> NOTE: this is what enables [nested hives](https://jarbashivemind.github.io/HiveMind-community-docs/15_nested/), a device can be both a **master** (by running `hivemind-core`) and a **slave** (by running this repo)
