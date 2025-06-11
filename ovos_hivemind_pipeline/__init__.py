@@ -9,6 +9,8 @@ from ovos_utils.fakebus import FakeBus
 from ovos_utils.lang import standardize_lang_tag
 from ovos_workshop.app import OVOSAbstractApplication
 
+from ovos_hivemind_pipeline.version import VERSION_MAJOR, VERSION_MINOR, VERSION_BUILD
+
 
 class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
     def __init__(self, bus: Optional[Union[MessageBusClient, FakeBus]] = None,
@@ -24,7 +26,7 @@ class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
         # set via 'hivemind-client set-identity'
         self.hm = HiveMessageBusClient(
             share_bus=self.slave_mode,
-            useragent=self.skill_id,
+            useragent=f"{self.skill_id}:{VERSION_MAJOR}.{VERSION_MINOR}.{VERSION_BUILD}",
             self_signed=self.config.get("allow_selfsigned", False),
             internal_bus=self.bus if self.slave_mode else None
         )
@@ -50,14 +52,14 @@ class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
         utt = message.data["utterance"]
         self.speak(utt)
 
-    def ask_hivemind(self, message):
+    def ask_hivemind(self, message: Message):
         if self.confirmation:
             self.speak_dialog("asking", data={"name": self.ai_name})
 
         utterance = message.data["utterance"]
         try:
             self.hm.emit_mycroft(
-                Message("recognizer_loop:utterance",
+                message.reply("recognizer_loop:utterance",
                         {"utterances": [utterance], "lang": self.lang})
             )
             # hivemind will answer async
