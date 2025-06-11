@@ -6,7 +6,7 @@ When in doubt, ask a smarter OVOS install
 
 Under `mycroft.conf` you can tweak some parameters for HiveMind Pipeline.
 
-> Learn more about intent pipelines and how to configure them in the [ovos-technical-manual](https://openvoiceos.github.io/ovos-technical-manual/pipelines_overview/)
+> 💡 Learn more about intent pipelines and how to configure them in the [ovos-technical-manual](https://openvoiceos.github.io/ovos-technical-manual/pipelines_overview/)
 
 ```json
 {
