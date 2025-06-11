@@ -9,13 +9,30 @@ from ovos_utils.fakebus import FakeBus
 from ovos_utils.lang import standardize_lang_tag
 from ovos_workshop.app import OVOSAbstractApplication
 
+from ovos_hivemind_pipeline.version import VERSION_MAJOR, VERSION_MINOR, VERSION_BUILD
+
 
 class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
-    def __init__(self, bus: Optional[Union[MessageBusClient, FakeBus]] = None,
+    """
+    A pipeline plugin that forwards utterances to a HiveMind client for intent handling.
+
+    NOTE: OVOSAbstractApplication is used to provide self.speak and self.speak_dialog methods
+    """
+
+    def __init__(self,
+                 bus: Optional[Union[MessageBusClient, FakeBus]] = None,
                  config: Optional[Dict] = None):
+        """
+        Initialize the HiveMindPipeline.
+
+        Args:
+            bus: Optional message bus client (real or fake).
+            config: Optional plugin configuration dictionary.
+        """
         OVOSAbstractApplication.__init__(
             self, bus=bus, skill_id="ovos-hivemind-pipeline-plugin",
-            resources_dir=f"{dirname(__file__)}")
+            resources_dir=f"{dirname(__file__)}"
+        )
         PipelinePlugin.__init__(self, bus, config)
 
         self.add_event("hivemind:ask", self.ask_hivemind)
@@ -24,67 +41,105 @@ class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
         # set via 'hivemind-client set-identity'
         self.hm = HiveMessageBusClient(
             share_bus=self.slave_mode,
-            useragent=self.skill_id,
+            useragent=f"{self.skill_id}:{VERSION_MAJOR}.{VERSION_MINOR}.{VERSION_BUILD}",
             self_signed=self.config.get("allow_selfsigned", False),
             internal_bus=self.bus if self.slave_mode else None
         )
         self.hm.run_in_thread()
+
         if not self.slave_mode:
             self.hm.on_mycroft("speak", self.on_speak)
 
     @property
-    def slave_mode(self):
+    def slave_mode(self) -> bool:
+        """
+        Whether the plugin is running in slave mode.
+
+        Returns:
+            True if slave mode is enabled, False otherwise.
+        """
         return self.config.get("slave_mode", False)
 
     @property
-    def ai_name(self):
+    def ai_name(self) -> str:
+        """
+        Name used to refer to the HiveMind AI.
+
+        Returns:
+            Name as a string.
+        """
         return self.config.get("name", "Hive Mind")
 
     @property
-    def confirmation(self):
+    def confirmation(self) -> bool:
+        """
+        Whether to confirm when asking HiveMind.
+
+        Returns:
+            True if confirmation is enabled, False otherwise.
+        """
         return self.config.get("confirmation", True)
 
-    def on_speak(self, message: Message):
-        # if hivemind server has no direct access to OVOS bus
+    def on_speak(self, message: Message) -> None:
+        """
+        Emit a local `speak` message when receiving one from HiveMind.
+
+        Args:
+            message: Message containing the utterance to speak.
+        """
+        # if hivemind server has no direct access to OVOS bus (slave_mode disabled)
         # we need to re-emit speak messages
         utt = message.data["utterance"]
         self.speak(utt)
 
-    def ask_hivemind(self, message):
+    def ask_hivemind(self, message: Message):
+        """
+        Forward the utterance to HiveMind for intent resolution.
+
+        Args:
+            message: Message containing the utterance to ask HiveMind.
+        """
         if self.confirmation:
             self.speak_dialog("asking", data={"name": self.ai_name})
 
-        utterance = message.data["utterance"]
         try:
             self.hm.emit_mycroft(
-                Message("recognizer_loop:utterance",
-                        {"utterances": [utterance], "lang": self.lang})
+                message.reply("recognizer_loop:utterance", {
+                    "utterances": [message.data["utterance"]],
+                    "lang": message.data["lang"]
+                })
             )
             # hivemind will answer async
-            return True
-        except:
+        except Exception:
             self.speak_dialog("hivemind_error")
 
-        return False
-
-    def match(self, utterances: List[str], lang: str, message: Message) -> Optional[IntentHandlerMatch]:
+    def match(self,
+              utterances: List[str],
+              lang: str,
+              message: Message) -> Optional[IntentHandlerMatch]:
         """
-        Send a hivemind request
+        Match an utterance using the HiveMind plugin.
 
         Args:
-            utterances (list): List of tuples,
-                               utterances and normalized version
-            lang (str): Language code
-            message: Message for session context
+            utterances: List of spoken input strings.
+            lang: BCP-47 language tag.
+            message: The original message from the pipeline.
+
         Returns:
-            IntentHandlerMatch or None
+            An IntentHandlerMatch if matched, otherwise None.
         """
         return IntentHandlerMatch(
             match_type="hivemind:ask",
-            match_data={"utterance": utterances[0],
-                        "lang": standardize_lang_tag(lang)},
+            match_data={
+                "utterance": utterances[0],
+                "lang": standardize_lang_tag(lang)
+            },
             skill_id=self.skill_id,
-            utterance=utterances[0])
+            utterance=utterances[0]
+        )
 
-    def shutdown(self):
-        self.default_shutdown()  # remove events registered via self.add_event
+    def shutdown(self) -> None:
+        """
+        Perform plugin shutdown logic and cleanup events.
+        """
+        self.default_shutdown() # from OVOSAbstractApplication
