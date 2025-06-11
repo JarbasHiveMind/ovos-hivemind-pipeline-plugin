@@ -1,36 +1,12 @@
 # Changelog
 
-## [V0.0.0a9](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a9) (2024-05-21)
+## [0.0.2a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.2a1) (2025-06-11)
 
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/V0.0.0a8...V0.0.0a9)
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.1...0.0.2a1)
 
-## [V0.0.0a8](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a8) (2024-05-21)
+**Merged pull requests:**
 
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/V0.0.0a7...V0.0.0a8)
-
-## [V0.0.0a7](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a7) (2024-05-21)
-
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/V0.0.0a6...V0.0.0a7)
-
-## [V0.0.0a6](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a6) (2024-05-21)
-
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/V0.0.0a5...V0.0.0a6)
-
-## [V0.0.0a5](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a5) (2024-05-21)
-
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/V0.0.0a4...V0.0.0a5)
-
-## [V0.0.0a4](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a4) (2024-05-20)
-
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/V0.0.0a3...V0.0.0a4)
-
-## [V0.0.0a3](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a3) (2024-05-20)
-
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/V0.0.0a2...V0.0.0a3)
-
-## [V0.0.0a2](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/tree/V0.0.0a2) (2024-05-20)
-
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-skill-fallback-hivemind/compare/4c51c47f86c205891ee7f953e6b4792ce121506b...V0.0.0a2)
+- fix: several mistakes during skill -\> pipeline migration [\#1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/1) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
