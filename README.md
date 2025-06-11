@@ -1,28 +1,37 @@
-# HiveMind Fallback Skill
+# HiveMind Pipeline Plugin
 
 When in doubt, ask a smarter OVOS install
 
-> NOTE: this repository eventually will be converted from a FallbackSkill into a pipeline plugin
-
 ## Configuration
 
-Under skill settings (`~/.config/mycroft/skills/skill-ovos-fallback-hivemind.openvoiceos/settings.json`) you can tweak some parameters for HiveMind Skill.
+Under `mycroft.conf` you can tweak some parameters for HiveMind Pipeline.
+
+> Learn more about intent pipelines and how to configure them in the [ovos-technical-manual](https://openvoiceos.github.io/ovos-technical-manual/pipelines_overview/)
 
 ```json
 {
-  "name": "HiveMind",
-  "confirmation": true,
-  "slave_mode": false,
-  "allow_selfsigned": false
+  "intents": {
+    "pipeline": [
+      "...",
+      "ovos-hivemind-pipeline-plugin",
+      "..."
+    ],
+    "ovos-hivemind-pipeline-plugin": {
+      "name": "Hive Mind",
+      "confirmation": true,
+      "slave_mode": false,
+      "allow_selfsigned": false
+    }
+  }
 }
 ```
 
-| Option             | Value      | Description                                                                                                                                    |
-|--------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`             | `HiveMind` | Name to give to the HiveMind AI assistant in the confirmation dialog                                                                           |
-| `confirmation`     | `true`     | Spoken confirmation will be triggered when a request is sent HiveMind                                                                          |
-| `allow_selfsigned` | `false`    | Allow self signed SSL certificates ofr HiveMind connection                                                                                     |
-| `slave_mode`       | `false`    | In slave mode HiveMind master receives all bus messages for passive monitoring and will be able to inject arbitrary messages into the OVOS bus |
+| Option             | Value       | Description                                                                                                                                    |
+|--------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`             | `Hive Mind` | Name to give to the HiveMind AI assistant in the confirmation dialog                                                                           |
+| `confirmation`     | `true`      | Spoken confirmation will be triggered when a request is sent HiveMind                                                                          |
+| `allow_selfsigned` | `false`     | Allow self signed SSL certificates ofr HiveMind connection                                                                                     |
+| `slave_mode`       | `false`     | In slave mode HiveMind master receives all bus messages for passive monitoring and will be able to inject arbitrary messages into the OVOS bus |
 
 
 ## HiveMind Setup
