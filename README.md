@@ -29,9 +29,9 @@ Under `mycroft.conf` you can tweak some parameters for HiveMind Pipeline.
 | Option             | Value       | Description                                                                                                                                    |
 |--------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`             | `Hive Mind` | Name to give to the HiveMind AI assistant in the confirmation dialog                                                                           |
-| `confirmation`     | `true`      | Spoken confirmation will be triggered when a request is sent HiveMind                                                                          |
-| `allow_selfsigned` | `false`     | Allow self signed SSL certificates ofr HiveMind connection                                                                                     |
-| `slave_mode`       | `false`     | In slave mode HiveMind master receives all bus messages for passive monitoring and will be able to inject arbitrary messages into the OVOS bus |
+| `confirmation`     | `true`      | Spoken confirmation will be triggered when a request is sentto  HiveMind                                                                          |
+| `allow_selfsigned` | `false`     | Allow self signed SSL certificates for HiveMind connection                                                                                     |
+| `slave_mode`       | `false`     | In slave mode HiveMind server receives all bus messages for passive monitoring and will be able to inject arbitrary messages into the OVOS bus |
 
 
 ## HiveMind Setup
@@ -49,7 +49,7 @@ Encryption Key: 4185240103de0770
 WARNING: Encryption Key is deprecated, only use if your client does not support password
 ```
 
-And then set the identity file in the satellite device (where the skill will run)
+And then set the identity file in the satellite device (where the ovos-core is running)
 ```bash
 $ hivemind-client set-identity --key 5a9e580a2773a262cbb23fe9759881ff --password 9b247ca66c7cd2b6388ad49ca504279d --host 0.0.0.0 --port 5678 --siteid test
 identity saved: /home/miro/.config/hivemind/_identity.json
@@ -76,7 +76,7 @@ $ hivemind-client test-identity
 == Identity successfully connected to HiveMind!
 ```
 
-If this step fails, your skill will also fail to connect to HiveMind
+> ⚠️ If this step fails, ovos-core will also fail to connect to HiveMind
 
 
 ## Slave Mode
