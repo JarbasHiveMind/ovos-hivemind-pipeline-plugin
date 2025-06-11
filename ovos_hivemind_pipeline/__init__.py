@@ -41,7 +41,7 @@ class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
         # set via 'hivemind-client set-identity'
         self.hm = HiveMessageBusClient(
             share_bus=self.slave_mode,
-            useragent=f"{self.skill_id}:{VERSION_MAJOR}.{VERSION_MINOR}.{VERSION_BUILD}",
+            useragent=f"{self.skill_id}-{VERSION_MAJOR}.{VERSION_MINOR}.{VERSION_BUILD}",
             self_signed=self.config.get("allow_selfsigned", False),
             internal_bus=self.bus if self.slave_mode else None
         )
