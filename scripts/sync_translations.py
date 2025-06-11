@@ -1,7 +1,3 @@
-"""this script should run in every PR originated from @gitlocalize-app
-TODO - before PR merge
-"""
-
 import json
 from os.path import dirname
 import os

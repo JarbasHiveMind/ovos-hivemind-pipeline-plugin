@@ -142,4 +142,4 @@ class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
         """
         Perform plugin shutdown logic and cleanup events.
         """
-        self.default_shutdown()
+        self.default_shutdown() # from OVOSAbstractApplication
