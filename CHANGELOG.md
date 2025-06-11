@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.0.2a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.2a1) (2025-06-11)
+## [0.0.3a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.3a1) (2025-06-11)
 
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.1...0.0.2a1)
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.2...0.0.3a1)
 
 **Merged pull requests:**
 
-- fix: several mistakes during skill -\> pipeline migration [\#1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/1) ([JarbasAl](https://github.com/JarbasAl))
+- fix: useragent cant contain : [\#3](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/3) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
