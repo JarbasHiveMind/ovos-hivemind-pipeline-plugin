@@ -102,12 +102,11 @@ class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
         if self.confirmation:
             self.speak_dialog("asking", data={"name": self.ai_name})
 
-        utterance = message.data["utterance"]
         try:
             self.hm.emit_mycroft(
                 message.reply("recognizer_loop:utterance", {
-                    "utterances": [utterance],
-                    "lang": self.lang
+                    "utterances": [message.data["utterance"]],
+                    "lang": message.data["lang"]
                 })
             )
             # hivemind will answer async
