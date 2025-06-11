@@ -1,3 +1,5 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin)
+
 # HiveMind Pipeline Plugin
 
 When in doubt, ask a smarter OVOS install
