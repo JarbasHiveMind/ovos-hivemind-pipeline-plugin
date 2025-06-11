@@ -2,6 +2,10 @@
 
 When in doubt, ask a smarter OVOS install
 
+## Install
+
+`pip install ovos-hivemind-pipeline-plugin`
+
 ## Configuration
 
 Under `mycroft.conf` you can tweak some parameters for HiveMind Pipeline.
@@ -93,4 +97,4 @@ from **master** -> **slave**:
 
 see the [hivemind protocol](https://jarbashivemind.github.io/HiveMind-community-docs/04_protocol) for more details on valid payloads
 
-> NOTE: this is what enables [nested hives](https://jarbashivemind.github.io/HiveMind-community-docs/15_nested/), a device can be both a **master** (by running `hivemind-core`) and a **slave** (by running this repo)
+> 💡 this is what enables [nested hives](https://jarbashivemind.github.io/HiveMind-community-docs/15_nested/), a device can be both a **master** (by running `hivemind-core`) and a **slave** (by running this repo)
