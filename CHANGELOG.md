@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.4a2](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.4a2) (2026-06-20)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.4a1...0.0.4a2)
+
+**Merged pull requests:**
+
+- build: modernize packaging \(pyproject\) + CI \(gh-automations\) [\#7](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/7) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.4a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.4a1) (2026-06-05)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.3...0.0.4a1)
