@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a1) (2026-06-23)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.4a2...0.1.0a1)
+
+**Merged pull requests:**
+
+- feat: add e2e + unit tests; remove gitlocalize remnants [\#9](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/9) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.4a2](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.4a2) (2026-06-20)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.4a1...0.0.4a2)
