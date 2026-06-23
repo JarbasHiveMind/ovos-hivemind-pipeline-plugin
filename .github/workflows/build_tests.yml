@@ -8,3 +8,10 @@ jobs:
     uses: OpenVoiceOS/gh-automations/.github/workflows/build-tests.yml@dev
     with:
       python_versions: '["3.10", "3.11", "3.12", "3.13"]'
+      # `.[dev]` first-attempt path covers the test deps via the dev extras
+      # alias; setting install_extras triggers a buggy `pip install test`
+      # literal in gh-automations.
+      test_path: 'tests'
+      # hivescope + hivemind-core are prerelease lines; pin them explicitly so
+      # the wheel's `[test]` extra resolves without pip's --pre flag.
+      pre_install_pip: '"hivescope>=0.5.0a2" "hivemind-core>=4.6.0a1"'
