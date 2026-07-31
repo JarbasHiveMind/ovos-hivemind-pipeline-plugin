@@ -2,7 +2,7 @@
 
 # HiveMind Pipeline Plugin
 
-When in doubt, ask a smarter OVOS install
+This plugin is an intent pipeline for [OVOS](https://github.com/OpenVoiceOS) (Open Voice OS). When the local skills cannot match an utterance, the plugin sends the utterance to a HiveMind server for processing.
 
 ## Install
 
@@ -10,9 +10,9 @@ When in doubt, ask a smarter OVOS install
 
 ## Configuration
 
-Under `mycroft.conf` you can tweak some parameters for HiveMind Pipeline.
+Under `mycroft.conf` you can set the parameters for the HiveMind Pipeline.
 
-> 💡 Learn more about intent pipelines and how to configure them in the [ovos-technical-manual](https://openvoiceos.github.io/ovos-technical-manual/pipelines_overview/)
+> Learn more about intent pipelines and how to configure them in the [ovos-technical-manual](https://openvoiceos.github.io/ovos-technical-manual/pipelines_overview/)
 
 ```json
 {
@@ -32,17 +32,16 @@ Under `mycroft.conf` you can tweak some parameters for HiveMind Pipeline.
 }
 ```
 
-| Option             | Value       | Description                                                                                                                                    |
-|--------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`             | `Hive Mind` | Name to give to the HiveMind AI assistant in the confirmation dialog                                                                           |
-| `confirmation`     | `true`      | Spoken confirmation will be triggered when a request is sentto  HiveMind                                                                          |
-| `allow_selfsigned` | `false`     | Allow self signed SSL certificates for HiveMind connection                                                                                     |
-| `slave_mode`       | `false`     | In slave mode HiveMind server receives all bus messages for passive monitoring and will be able to inject arbitrary messages into the OVOS bus |
-
+| Option             | Value       | Description                                                                                                              |
+|--------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`             | `Hive Mind` | Name of the HiveMind AI assistant in the confirmation dialog                                                             |
+| `confirmation`     | `true`      | Play a spoken confirmation when the plugin sends a request to HiveMind                                                   |
+| `allow_selfsigned` | `false`     | Allow self-signed SSL certificates for the HiveMind connection                                                           |
+| `slave_mode`       | `false`     | In slave mode, the HiveMind server receives all bus messages for passive monitoring, and can inject arbitrary messages into the OVOS bus |
 
 ## HiveMind Setup
 
-You need to register the skill in the HiveMind server
+Register the client in the HiveMind server.
 ```bash
 $ hivemind-core add-client
 Credentials added to database!
@@ -55,13 +54,13 @@ Encryption Key: 4185240103de0770
 WARNING: Encryption Key is deprecated, only use if your client does not support password
 ```
 
-And then set the identity file in the satellite device (where the ovos-core is running)
+Set the identity file on the satellite device, where ovos-core runs.
 ```bash
 $ hivemind-client set-identity --key 5a9e580a2773a262cbb23fe9759881ff --password 9b247ca66c7cd2b6388ad49ca504279d --host 0.0.0.0 --port 5678 --siteid test
 identity saved: /home/miro/.config/hivemind/_identity.json
 ```
 
-check the created identity file if you like
+Check the identity file.
 ```bash
 $ cat ~/.config/hivemind/_identity.json
 {
@@ -73,7 +72,7 @@ $ cat ~/.config/hivemind/_identity.json
 }
 ```
 
-test that a connection is possible using the identity file
+Test that a connection is possible with the identity file.
 ```bash
 $ hivemind-client test-identity
 (...)
@@ -82,21 +81,24 @@ $ hivemind-client test-identity
 == Identity successfully connected to HiveMind!
 ```
 
-> ⚠️ If this step fails, ovos-core will also fail to connect to HiveMind
-
+> If this step fails, ovos-core also fails to connect to HiveMind.
 
 ## Slave Mode
 
-If running in **slave** mode skills can emit serialized [HiveMessages](https://github.com/JarbasHiveMind/hivemind-websocket-client/blob/dev/hivemind_bus_client/message.py) via the regular bus
+In **slave** mode, skills can emit serialized [HiveMessages](https://github.com/JarbasHiveMind/hivemind-websocket-client/blob/dev/hivemind_bus_client/message.py) over the regular bus. This lets you inject bus messages from one device messagebus into another.
 
-This can be used to inject bus messages from one device messagebus to the other
+From **slave** to **master** (the message might be rejected by `hivemind-core`):
+- Emit `"hive.send.upstream"` with `message.data`, `{"msg_type": "bus", "payload": message.serialize()}`
 
-from **slave** -> **master**: (might be rejected by `hivemind-core`)
-- emit `"hive.send.upstream"` with message.data, `{"msg_type": "bus", "payload": message.serialize()}`
+From **master** to **slave**:
+- Emit `"hive.send.downstream"` with `message.data`, `{"msg_type": "bus", "payload": message.serialize()}`
 
-from **master** -> **slave**:
-- emit `"hive.send.downstream"` with message.data, `{"msg_type": "bus", "payload": message.serialize()}`
+See the [HiveMind protocol](https://jarbashivemind.github.io/HiveMind-community-docs/04_protocol) for details on valid payloads.
 
-see the [hivemind protocol](https://jarbashivemind.github.io/HiveMind-community-docs/04_protocol) for more details on valid payloads
+This mechanism enables [nested hives](https://jarbashivemind.github.io/HiveMind-community-docs/15_nested/): a device can be both a **master** (by running [hivemind-core](https://github.com/JarbasHiveMind/HiveMind-core)) and a **slave** (by running this plugin).
 
-> 💡 this is what enables [nested hives](https://jarbashivemind.github.io/HiveMind-community-docs/15_nested/), a device can be both a **master** (by running `hivemind-core`) and a **slave** (by running this repo)
+## Related projects
+
+- [hivemind-core](https://github.com/JarbasHiveMind/HiveMind-core) — the HiveMind server
+- [hivemind_bus_client](https://github.com/JarbasHiveMind/hivemind-websocket-client) — the client library used to connect to a HiveMind server
+- [HiveMind-community-docs](https://github.com/JarbasHiveMind/HiveMind-community-docs) — the HiveMind protocol documentation
