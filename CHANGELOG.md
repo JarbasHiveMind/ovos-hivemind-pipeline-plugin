@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a2](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a2) (2026-08-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a1...0.1.0a2)
+
+**Merged pull requests:**
+
+- chore\(ci\): onboard Renovate [\#12](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/12) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.0a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a1) (2026-06-23)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.4a2...0.1.0a1)
