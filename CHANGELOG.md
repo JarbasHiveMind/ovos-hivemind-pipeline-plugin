@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a3](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a3) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a2...0.1.0a3)
+
+**Merged pull requests:**
+
+- docs: add AGENTS.md with per-repo agent conventions [\#14](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/14) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.0a2](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a2) (2026-08-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a1...0.1.0a2)
