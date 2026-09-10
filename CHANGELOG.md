@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.0a4](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a4) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a3...0.1.0a4)
+
+**Merged pull requests:**
+
+- translate\(da-dk\): update asking and hivemind\_error dialogs [\#17](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/17) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+- feat: add da-dk and sv-se translations [\#11](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/11) ([andlo](https://github.com/andlo))
+
 ## [0.1.0a3](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a3) (2026-08-15)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a2...0.1.0a3)
