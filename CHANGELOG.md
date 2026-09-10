@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.1a1) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a4...0.1.1a1)
+
+**Merged pull requests:**
+
+- fix: pass the assistant name to the error dialog so it can be spoken [\#18](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/18) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.1.0a4](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a4) (2026-09-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a3...0.1.0a4)
