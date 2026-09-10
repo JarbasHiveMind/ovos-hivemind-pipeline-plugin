@@ -1,12 +1,61 @@
 # Changelog
 
-## [0.0.3a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.3a1) (2025-06-11)
+## [0.1.1a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.1a1) (2026-09-10)
 
-[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.2...0.0.3a1)
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a4...0.1.1a1)
 
 **Merged pull requests:**
 
-- fix: useragent cant contain : [\#3](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/3) ([JarbasAl](https://github.com/JarbasAl))
+- fix: pass the assistant name to the error dialog so it can be spoken [\#18](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/18) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
+## [0.1.0a4](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a4) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a3...0.1.0a4)
+
+**Merged pull requests:**
+
+- translate\(da-dk\): update asking and hivemind\_error dialogs [\#17](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/17) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+- feat: add da-dk and sv-se translations [\#11](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/11) ([andlo](https://github.com/andlo))
+
+## [0.1.0a3](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a3) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a2...0.1.0a3)
+
+**Merged pull requests:**
+
+- docs: add AGENTS.md with per-repo agent conventions [\#14](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/14) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.0a2](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a2) (2026-08-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.0a1...0.1.0a2)
+
+**Merged pull requests:**
+
+- chore\(ci\): onboard Renovate [\#12](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/12) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.0a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.0a1) (2026-06-23)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.4a2...0.1.0a1)
+
+**Merged pull requests:**
+
+- feat: add e2e + unit tests; remove gitlocalize remnants [\#9](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/9) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.0.4a2](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.4a2) (2026-06-20)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.4a1...0.0.4a2)
+
+**Merged pull requests:**
+
+- build: modernize packaging \(pyproject\) + CI \(gh-automations\) [\#7](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/7) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.0.4a1](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.0.4a1) (2026-06-05)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.0.3...0.0.4a1)
+
+**Merged pull requests:**
+
+- docs: zero-to-hero README and docs/ [\#5](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/5) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

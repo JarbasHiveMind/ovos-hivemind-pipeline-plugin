@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovos-hivemind-pipeline-plugin"
+description = "hivemind pipeline plugin for OVOS"
+readme = "README.md"
+authors = [{ name = "jarbasAI", email = "jarbasai@mailfence.com" }]
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dynamic = ["version", "dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    # hivescope drives the e2e suite (in-process HiveMind topology simulator);
+    # hivemind-core supplies the real master-side listener protocol it wires up.
+    "hivescope>=0.5.0a2",
+    "hivemind-core>=4.6.0a1",
+]
+# Alias so gh-automations' `pip install -e ".[dev]"` first-attempt path
+# resolves; without it the upstream workflow falls through to a buggy
+# `pip install test` literal branch.
+dev = [
+    "pytest",
+    "hivescope>=0.5.0a2",
+    "hivemind-core>=4.6.0a1",
+]
+
+[project.entry-points."opm.pipeline"]
+"ovos-hivemind-pipeline-plugin" = "ovos_hivemind_pipeline:HiveMindPipeline"
+
+[tool.setuptools]
+packages = ["ovos_hivemind_pipeline"]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { attr = "ovos_hivemind_pipeline.version.__version__" }
+dependencies = { file = ["requirements.txt"] }
+
+[tool.pytest.ini_options]
+# tests/ on the path so unit + e2e modules share tests/conftest.py helpers
+pythonpath = ["tests"]
+testpaths = ["tests"]
