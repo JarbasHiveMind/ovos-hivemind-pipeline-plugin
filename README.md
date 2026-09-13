@@ -111,14 +111,25 @@ bus.emit(Message("hive.send.upstream", {
 }))
 ```
 
-To push a message from the hub to the satellite (downstream):
+To push a message from the hub to the satellite (downstream). The hub's [hivemind-ovos-agent-plugin](https://github.com/JarbasHiveMind/hivemind-ovos-agent-plugin) handles this message:
 
 ```python
 bus.emit(Message("hive.send.downstream", {
     "msg_type": "bus",
-    "payload": some_message.serialize()
+    "payload": some_message.serialize(),
+    "peer": "<peer id>"
 }))
 ```
+
+The `peer` value is the peer id of one connected satellite (`HiveMindClientConnection.peer` in hivemind-core). The id is `name::session_id`. If two connections share one access key and ask for the same id, hivemind-core adds a `::<8 hex>` suffix to the second id. A `bus` message is sent only when `peer` is set:
+
+- If `peer` is missing, nothing is sent and no error is emitted.
+- If `peer` names no connected satellite, the hub emits `"hive.client.send.error"`.
+- The hub does not check that `peer` is the satellite you mean. An id can name a different connected satellite. An old id can belong to a new connection with the same `name::session_id`. In both cases the hub sends the message to that connection and emits no error.
+- Do not build the peer id. Read it from `message.context["source"]` of a message that the satellite sent. hivemind-core sets `source` and `peer` to the peer id of the sender.
+- A `propagate` or `broadcast` message goes to all connected satellites.
+- An `escalate` message is dropped and no error is emitted.
+- If `msg_type` is missing, the handler raises an error and sends nothing.
 
 This also enables [nested hives](https://jarbashivemind.github.io/HiveMind-community-docs/15_nested/):
 a device can run both `hivemind-core` (as a hub for its own satellites) and this
