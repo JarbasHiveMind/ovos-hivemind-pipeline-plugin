@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1a5](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.1a5) (2026-09-13)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.1a4...0.1.1a5)
+
+**Merged pull requests:**
+
+- docs: the hive.send.downstream example carries the peer key [\#28](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/28) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.1.1a4](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.1a4) (2026-09-13)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.1a3...0.1.1a4)
