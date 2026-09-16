@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1a6](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.1a6) (2026-09-16)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.1a5...0.1.1a6)
+
+**Merged pull requests:**
+
+- translate\(de-de\): add asking and hivemind\_error dialogs [\#21](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/21) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.1.1a5](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.1a5) (2026-09-13)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.1a4...0.1.1a5)
