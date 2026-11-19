@@ -111,7 +111,7 @@ class HiveMindPipeline(PipelinePlugin, OVOSAbstractApplication):
             )
             # hivemind will answer async
         except Exception:
-            self.speak_dialog("hivemind_error")
+            self.speak_dialog("hivemind_error", data={"name": self.ai_name})
 
     def match(self,
               utterances: List[str],
