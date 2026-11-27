@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1a8](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.1a8) (2026-11-27)
+
+[Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.1a7...0.1.1a8)
+
+**Merged pull requests:**
+
+- translate\(gl-ES\): update hivemind\_error.dialog [\#32](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/pull/32) ([ovos-localize[bot]](https://github.com/apps/ovos-localize))
+
 ## [0.1.1a7](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/tree/0.1.1a7) (2026-11-19)
 
 [Full Changelog](https://github.com/JarbasHiveMind/ovos-hivemind-pipeline-plugin/compare/0.1.1a6...0.1.1a7)
